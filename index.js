@@ -1,5 +1,6 @@
 const postcss = require("postcss");
-const hexRex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
+const helpers = require("./helpers");
+const indexedColors = [];
 
 module.exports = postcss.plugin("postcss-color-literals-to-variables", function(
   opts
@@ -9,16 +10,11 @@ module.exports = postcss.plugin("postcss-color-literals-to-variables", function(
     const colorList = [];
     root.walkRules(rule => {
       rule.walkDecls(decl => {
-        if (decl.value.match(hexRex)) {
-          const hexColor = decl.value;
-          const colorKey = `$color-literal-${decl.value.slice(1)}`;
-          const colorVar = {
-            [colorKey]: hexColor
-          };
-
-          decl.value = colorKey;
-
-          colorList.push(colorVar);
+        if (
+          helpers.isValidHex(decl.value) ||
+          helpers.isValidColorFunction(decl.value)
+        ) {
+          translateToVariable(decl.value);
         }
       });
     });

@@ -13,7 +13,7 @@ function run(input, output, opts) {
 
 it("creates hex variables and replaces it", function() {
   return run(
-    ".selector { color: #000; background-color: #ffffff }",
+    ".hex { color: #000; background-color: #ffffff } .rgb { color: rgb(0, 0, 0);}",
     "$color-literal-000: #000; $color-literal-ffffff: #ffffff; .selector { color: $color-literal-000; background-color: $color-literal-ffffff}"
   );
 });

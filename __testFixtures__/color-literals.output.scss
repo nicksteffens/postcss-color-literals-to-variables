@@ -1,0 +1,71 @@
+$color-literal-mediumslateblue: mediumslateblue;
+$color-literal-fff: #fff;
+$color-literal-white: white;
+$color-literal-black: balck;
+$color-literal-rgb-255-0-0: rgb(255, 0, 0);
+$color-literal-hsl-120-70-80: hsl(120, 70%, 80%);
+$color-literal-hsl-25-100-80: hsl(25, 100%, 80%);
+$color-literal-rgb-255-255-255: rgb(255, 255, 255);
+$color-literal-rgb-255-255-255: rgba(255, 255, 255, 0.3);
+$color-literal-hsl-40-50-50: hsl(40, 50%, 50%);
+
+.literal {
+  color: $color-literal-mediumslateblue;
+}
+
+.linear-gradient-func {
+  background: linear-gradient(top, $color-literal-fff, $color-literal-white);
+}
+
+.box-shadow {
+  box-shadow: 1px 1px $color-literal-black, 1px 1px $color-literal-black;
+}
+
+.background {
+  background: 1px solid $color-literal-white;
+}
+
+.hex {
+  color: $color-literal-fff;
+}
+
+// rgb function passed directly as function argument
+.adj {
+  color: adjust-color($color-literal-rgb-255-0-0, $blue: 5);
+}
+
+// hsl function passed directly as function argument
+.scale {
+  color: scale-color($color-literal-hsl-120-70-80, $lightness: 50%);
+}
+
+// hsl function passed directly as function argument
+.change {
+  color: change-color(
+    $color-literal-hsl-25-100-80,
+    $lightness: 40%,
+    $alpha: 0.8
+  );
+}
+
+// color literal passed directly as function argument
+.function {
+  color: test($color-literal-fff);
+}
+
+// color functions used directly as property values
+.rgb {
+  color: $color-literal-rgb-255-255-255;
+}
+
+.rgba {
+  color: rgba($color-literal-rgb-255-255-255, 0.3);
+}
+
+.hsl {
+  color: $color-literal-hsl-40-50-50;
+}
+
+.hsla {
+  color: hsla($color-literal-hsl-40-50-50, 0.3);
+}
