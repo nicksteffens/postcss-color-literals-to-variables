@@ -1,0 +1,26 @@
+{
+  "name": "postcss-color-literals-to-variables",
+  "version": "1.0.0",
+  "description": "postcss plugin to create color variables from color literals",
+  "main": "index.js",
+  "repository": "git@github.com:nicksteffens/postcss-color-literals-to-variables.git",
+  "author": "Nick Steffens <nsteffens@gmail.com>",
+  "keywords": [
+    "postcss",
+    "sass",
+    "postcss-plugin",
+    "color",
+    "literals"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "postcss": "^7.0.6"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "prettier": "^1.15.3"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
